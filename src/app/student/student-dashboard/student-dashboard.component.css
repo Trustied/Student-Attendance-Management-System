@@ -1,0 +1,16 @@
+tbody,
+th,
+td,
+thead,
+tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding-top: 10px;
+    padding-bottom: 10;
+    padding-left: 30px;
+    padding-right: 40px;
+}

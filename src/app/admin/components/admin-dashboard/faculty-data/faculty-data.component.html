@@ -1,0 +1,137 @@
+<div class="container-fluid">
+
+    <!--first row-->
+    <div class="row text-center text-success mt-3">
+        <div class="col-md-4">
+            <div class="card">
+                <a href="" style="text-decoration:none;" class="text-success"  data-bs-toggle="modal">
+                    <div class="card-shadow">
+                        <div class="card-body">
+                            <h4>Total Faculties</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <a href="" style="text-decoration:none;" class="text-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="card-shadow">
+                        <div class="card-body">
+                            <h4>Add Faculty</h4>
+                            <p>+</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <a href="" style="text-decoration:none;" class="text-success"  data-bs-toggle="modal" data-bs-target="#exampleModal_2">
+                    <div class="card-shadow">
+                        <div class="card-body">
+                            <h4>Add Department</h4>
+                            <p>+</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Second Row-->
+    <div class="col-pe2 mt-3">
+        <div class="col-sm-12 text-center">
+            <div>
+                <div class="card-shadow">
+                    <div class="card-body">
+                        <h6 class="text-sucess">List of Faculties</h6>
+                        <div class="table table-hover mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Faculty ID</th>
+                                    <th scope="col">Faculty Name</th>
+                                    <th scope="col">Departments</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let faculty of allFacultyList">
+                                <td></td>
+                                <td>{{faculty.faculty_name</td>
+                                <td>{{faculty.department}</td>
+                            </tbody>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    
+    <!--Add Faculty-->  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5 text-success" id="exampleModalLabel">Add Faculty</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #facultyDetailsform="ngForm" (submit)="addNewFaculty()" class="form-floating mb-3">
+                <p style="color: red">Field is required!</p>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="faculty_name" id="floatingInput" placeholder="faculty_name" name="faculty_name"  required>
+                    <label for="floatingInput">Faculty Name </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="department" [(ngModel)]="department">
+                    <label for="floatingInput">Department </label>
+                </div>
+            </form>
+            
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="facultyDetailsform.invalid">Add Faculty</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Add Department-->
+  <div class="modal fade" id="exampleModal_2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-5 text-success" id="exampleModalLabel">Add Department</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <form #departmentDetailsform="ngForm" (submit)="addNewDepartment()">
+                        <p style="color: red">Field is required!</p>
+                        
+                        <div class="form-floating mb-3">
+                            
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Department Name" name="department_name" [(ngModel)]="department" required>
+                            <label for="floatingInput">Department Name </label>
+                        </div>
+                    </form>
+                    
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Add Department</button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+<!--<select class="form-select" aria-label="Default select example" name="faculty">
+    <option *ngFor="let faculty of faculty_name"[value]="faculty">{{faculty}}</option>
+</select>-->

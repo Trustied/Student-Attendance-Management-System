@@ -1,0 +1,51 @@
+
+<div class="overflow-hidden container">
+    <div class="row justify-content-center"
+    style="margin-top: 100px;">
+        <form class="col col-md-10
+        col-lg-7 bg-light bg-gradient p-2"
+        (ngSubmit)="login()"
+         #loggedIn="ngForm">
+            <div class="text-center p-2">
+               <h4>
+                    Login
+               </h4> 
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" 
+                class="form-control" 
+                required
+                email
+                name="email"
+                [(ngModel)]="email"
+                placeholder="name@email.com"
+                #mail="ngModel">
+                <div>
+                    <small 
+                    *ngIf="mail.invalid && mail.touched">
+                        Email is a required field
+                    </small>
+                </div>
+            </div>    
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" 
+                class="form-control" 
+                name="password"
+                [(ngModel)]="password"
+                placeholder="password">
+            </div>    
+            <div class="my-4 px-3">
+                <button type="submit"
+                class="btn btn-success"
+                style="width: 100%;"
+                [disabled]="mail.invalid">
+                    Login
+                </button>
+            </div>
+            <a routerLink="/signup" class="text-primary" style="text-decoration: none;">Need account?</a>              
+        </form>
+</div>
+
+</div>

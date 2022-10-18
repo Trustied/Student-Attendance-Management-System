@@ -1,0 +1,219 @@
+<div >
+    <div class="overflow-hidden container">
+        <div class="row 
+        justify-content-center 
+        bg-light bg-gradient 
+        border border-1 rounded" 
+        style="margin-top: 60px;">
+        <div class="text-center">
+            <h5>
+                Sign-up
+            </h5>
+            <p>
+                Create a New Student Account
+            </p>
+        </div>
+            <div class="col-12 px-5">
+                <form 
+                (ngSubmit)="onSubmit()"
+                #signUpForm="ngForm">
+                    
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" 
+                            class="form-control" 
+                            required
+                            name="firstName"
+                            [(ngModel)]="firstName"
+                            placeholder="your first name"
+                            #fname="ngModel">
+                            <div>
+                                <small 
+                                *ngIf="fname.invalid && fname.touched">
+                                    First name is a required field
+                                </small>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control"
+                            name="lastName"
+                            [(ngModel)]="lastName"
+                            placeholder="your last name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control"
+                            required email
+                            name="email"
+                            [(ngModel)]="email"
+                            placeholder="name@email.com"
+                            #mail="ngModel">
+                            <div>
+                                <small 
+                                *ngIf="mail.invalid && mail.touched">
+                                    Email is a required field
+                                </small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control"
+                            required name="password"
+                            [(ngModel)]="password"
+                            placeholder="enter your password"
+                            #Pword="ngModel">
+                            <div>
+                                <small 
+                                *ngIf="Pword.invalid && Pword.touched">
+                                    Password is a required field
+                                </small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirm-Password</label>
+                            <input type="password" class="form-control"
+                            required placeholder="enter your password again">
+                        </div>
+                    
+                    <div>
+                        <div>
+                            <label class="form-label">
+                                Faculty
+                            </label>
+                        </div>
+                        <select 
+                        class="form-select 
+                        form-select-sm mb-3"
+                        name="faculty" 
+                        [(ngModel)]="faculty">
+                            <option value="faculty of science">
+                                Faculty of Science
+                            </option>
+                            <option value="faculty of law">
+                                Faculty of Law
+                            </option>
+                            <option value="faculty of humamities">
+                                Faculty of Humamities
+                            </option>
+                        </select>
+                        <ng-container *ngIf="faculty === 'faculty of science'">
+                            <div>
+                                <label class="form-label">
+                                    Department
+                                </label>
+                                <select 
+                                    class="form-select 
+                                    form-select-sm mb-3" 
+                                    name="department"
+                                    [(ngModel)]="department">
+                                        <option value="physics">
+                                            Physics
+                                        </option>
+                                        <option value="mathematics">
+                                            Mathematics
+                                        </option>
+                                        <option value="computer science">
+                                            computer science
+                                        </option>
+                                </select>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="faculty === 'faculty of law'">
+                            <div>
+                                <label class="form-label">
+                                    Department
+                                </label>
+                                <select 
+                                class="form-select 
+                                form-select-sm mb-3"
+                                name="department"
+                                [(ngModel)]="department">
+                                    <option value="Law" selected>
+                                        Law
+                                    </option>
+                                </select>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="faculty === 'faculty of humamities'">
+                            <div>
+                                <label class="form-label">
+                                    Department
+                                </label>
+                                <select 
+                                    class="form-select 
+                                    form-select-sm mb-3"
+                                    name="department"
+                                    [(ngModel)]="department">
+                                        <option value="english">
+                                            English
+                                        </option>
+                                        <option value="history">
+                                            History
+                                        </option>
+                                        <option value="sociology">
+                                            Sociology
+                                        </option>
+                                </select>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-2 text-end">
+                                Gender:
+                            </div>
+                            <div class="col-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" 
+                                    value="male" [(ngModel)]="gender"
+                                     type="radio" name="gender">
+                                    <label class="form-check-label">
+                                      Male
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                     value="female" [(ngModel)]="gender"
+                                    type="radio" name="gender">
+                                    <label class="form-check-label">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                    value="other" type="radio" 
+                                     name="gender" [(ngModel)]="gender">
+                                    <label class="form-check-label">
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">State</label>
+                        <input type="text" 
+                        class="form-control" 
+                        name="state"
+                        [(ngModel)]="state"
+                        placeholder="state">
+                    </div>
+                    <div class="my-4 px-3">
+                        <button type="submit"
+                        [disabled]="signUpForm.invalid"
+                        class="btn btn-success"
+                        style="width: 100%;">
+                            Submit
+                        </button>
+                    </div>
+                    <a routerLink="/login" class="text-primary" style="text-decoration: none;">Already have an account?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

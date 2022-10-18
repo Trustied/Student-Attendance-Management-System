@@ -1,0 +1,57 @@
+<div class="container-fluid">
+
+    <!--first row-->
+    <div class="row text-center text-success mt-3">
+        <div class="col-md-4">
+            <div class="card">
+                <a href="" style="text-decoration:none;" class="text-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="card-shadow">
+                        <div class="card-body">
+                            <h4>Total Departments</h4>
+                            <p>10</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <a href="" style="text-decoration:none;" class="text-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="card-shadow">
+                        <div class="card-body">
+                            <h4>Add Department</h4>
+                            <p>+</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+     
+    
+    <!--Add Faculty-->  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5 text-success" id="exampleModalLabel">Add Department</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #departmentDetailsform="ngForm" (ngSubmit)="addNewDepartment()">
+                <p style="color: red">Field is required!</p>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Department Name" name="department_name" [(ngModel)]="department_name" required>
+                    <label for="floatingInput">Department Name </label>
+                </div>
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Department</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

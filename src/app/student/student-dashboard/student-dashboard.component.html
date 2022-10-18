@@ -1,0 +1,118 @@
+<div class="bg-light" 
+style="margin-top: 100px;">
+    <div class="container px-5 py-2">
+        <div>
+            <div class="text-center">
+                <h3>
+                    Student Profile
+                </h3>
+            </div>
+
+            <div class="col-pe2 mt-3">
+                <div class="col-sm-12 text-center">
+                    <div>
+                        <div class="card-shadow">
+                            <div class="card-body">
+                                <h6 class="text-sucess">Welcome Back {{studentdetails.RESULT.firstName}}</h6>
+                                <div class="table table-bordered border-primary">
+                                    <thead class="table table-bordered border-primary">
+                                        <tr class="table table-bordered border-primary">
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Faculty</th>
+                                            <th scope="col">Department</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">State</th>
+                                            <th scope="col">Attendance</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table table-bordered border-primary">
+                                        <td>{{studentdetails.RESULT.firstName}}</td>
+                                        <td>{{studentdetails.RESULT.lastName}}</td>
+                                        <td>{{studentdetails.RESULT.email}}</td>
+                                        <td>{{studentdetails.RESULT.faculty}}</td>
+                                        <td>{{studentdetails.RESULT.department}}</td>
+                                        <td>{{studentdetails.RESULT.gender}}</td>
+                                        <td>{{studentdetails.RESULT.state}}</td>
+                                        <td>
+                                            <form class="row"
+                                        (ngSubmit)="markAttendance()"
+                                        #markattendance="ngForm" style="cursor: pointer;">
+                                            <div class="col-1">
+                                                <input type="checkbox" 
+                                                required (change)="changeChecked()">
+                                            </div>
+                                        </form>
+                                        </td>
+                                        <td>
+                                            <div class="col-5" *ngIf="checked === true">
+                                                <button class=" btn btn-success"
+                                                type="submit" style="width: 100px;">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </td>
+                                        
+                                    </tbody>
+
+
+            <!--<div class="card">
+            
+                <div class="text-center card-header">
+                    <h5 class="card-title">
+                        Welcome Back {{studentdetails.RESULT.firstName}}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            First Name:{{studentdetails.RESULT.firstName}}
+                        </li>
+                        <li class="list-group-item">
+                            Last Name:{{studentdetails.RESULT.lastName}}
+                        </li>
+                        <li class="list-group-item">
+                            Email: {{studentdetails.RESULT.email}}
+                        </li>
+                        <li class="list-group-item">
+                            Faculty: {{studentdetails.RESULT.faculty}}
+                        </li>
+                        <li class="list-group-item">
+                            Department: {{studentdetails.RESULT.department}}
+                        </li>
+                        <li class="list-group-item">
+                            Gender: {{studentdetails.RESULT.gender}}
+                        </li>
+                        <li class="list-group-item">
+                            State: {{studentdetails.RESULT.state}}
+                        </li>
+                    </ul>
+                    <div class="card-footer">
+                        <div>
+                            <h6>
+                                Mark Attendance
+                            </h6>
+                        </div>
+                        <form class="row"
+                        (ngSubmit)="markAttendance()"
+                        #markattendance="ngForm">
+                            <div class="col-1">
+                                <input type="checkbox" 
+                                required (change)="changeChecked()">
+                            </div>
+                            <div class="col-2" *ngIf="checked === true">
+                                <button class="btn btn-success"
+                                type="submit" style="width: 100%;">
+                                    Send
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+

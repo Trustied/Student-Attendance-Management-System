@@ -1,0 +1,34 @@
+<div class="container-fluid m-0 p-0"  style="height:100vh;
+overflow: hidden !important">
+
+    <div class="col">
+        <div class="col-md-3 my-5 me-5" style="height:400px;">
+            <div class="card shadow p-4" style="height:400px !important;">
+                <form [formGroup]="adminLoginData" (ngSubmit)="adminLogin()">
+                    <h4 class="text-success">Admin Login</h4>
+                    <div class="my-3">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="username" placeholder="Enter Email">
+                        <div *ngIf="adminLoginData.get('username')?.invalid && (adminLoginData.get('username')?.dirty || adminLoginData.get('username')?.touched)"  class="text-danger">this field is Required</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" formControlName="password"  placeholder="Enter Password">
+                        <div *ngIf="adminLoginData.get('password')?.invalid && (adminLoginData.get('password')?.dirty || adminLoginData.get('password')?.touched)"  class="text-danger">this field is Required</div>
+                    </div>
+                    <!--<div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Confirm Details</label>
+                    </div>-->
+                    <button type="submit" class="btn btn-outline-success me-3 ms-auto" [disabled]="adminLoginData.invalid">Login</button>
+                    <a routerLink="/admin/signup" class="text-primary" style="text-decoration: none;">Need account?</a>
+                </form>
+            </div>
+        
+    </div> 
+    </div>
+    
+
+</div>
+
+
